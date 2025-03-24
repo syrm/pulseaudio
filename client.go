@@ -182,7 +182,7 @@ loop:
 					panic(err)
 				}
 				raw := data[4]
-				index := uint32(binary.BigEndian.Uint16(data[8:10]))
+				index := binary.BigEndian.Uint32(data[6:10])
 
 				s.EventFacility = SubscriptionEventFacility(raw & 0x0F).String()
 				s.EventType = SubscriptionEventType(raw & 0x30).String()
